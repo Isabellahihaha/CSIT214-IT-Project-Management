@@ -1,2 +1,4 @@
 # CSIT214-IT-Project-Management
-Project with classmate
+Loyalty Program of FlyDreamAir
+By Yiheng Huang, Qianyu Li and Wenwen Liu
+
