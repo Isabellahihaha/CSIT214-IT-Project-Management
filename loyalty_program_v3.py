@@ -1,15 +1,15 @@
 # third version
 # --- Configuration for Status and Rewards ---
 STATUS_TIERS = {
-    "Blue": 0,
-    "Silver": 5000,
-    "Gold": 15000,
-    "Diamond Elite": 50000
+    "Nova": 0,
+    "Orbit": 5000,
+    "Galaxy": 12000,
+    "Cosmos": 50000
 }
 
 REWARDS = {
     "LOUNGE_ACCESS": 5000,
-    "BUSINESS_UPGRADE": 15000,
+    "BUSINESS_UPGRADE": 12000,
     "REGIONAL_FLIGHT": 50000
 }
 
@@ -30,14 +30,14 @@ class LoyaltyMember:
 
     def _get_status_from_points(self, points):
         """Determines member's tier."""
-        if points >= STATUS_TIERS["Diamond Elite"]:
-            return "Diamond Elite"
-        elif points >= STATUS_TIERS["Gold"]:
-            return "Gold"
-        elif points >= STATUS_TIERS["Silver"]:
-            return "Silver"
+        if points >= STATUS_TIERS["Cosmos"]:
+            return "Cosmos"
+        elif points >= STATUS_TIERS["Galaxy"]:
+            return "Galaxy"
+        elif points >= STATUS_TIERS["Orbit"]:
+            return "Orbit"
         else:
-            return "Blue"
+            return "Nova"
 
     def update_status(self):
         """Updates member tier if qualified."""
@@ -70,7 +70,7 @@ class LoyaltyProgram:
             print(f"❌ Member {member_id} not found.")
             return
         base = int(flight_cost * 5)
-        bonus = {"Blue":1.0,"Silver":1.2,"Gold":1.5,"Diamond Elite":2.0}[member.status]
+        bonus = {"Nova":1.0,"Orbit":1.2,"Galaxy":1.5,"Cosmos":2.0}[member.status]
         earned = int(base * bonus)
         member.points += earned
         print(f"💰 {member.name} earned {earned:,} points from ${flight_cost:.2f}. Total: {member.points:,}.")
